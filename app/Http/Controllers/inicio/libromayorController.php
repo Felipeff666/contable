@@ -18,6 +18,12 @@ class libromayorController extends Controller
     }
 
     function store(Request $request){
+
+        $request->validate([
+            'nombre_denominacion'=>'required',
+            'gestion'=>'required|after:2020-01-01',
+        ]);
+
         $libros_mayores=new libro_mayor();
         $libros_mayores->nombre_denominacion=$request->nombre_denominacion;
         $libros_mayores->gestion=$request->gestion;
@@ -30,6 +36,12 @@ class libromayorController extends Controller
         return view('inicio/libro_mayor/editar',compact('libros_mayores'));
     }
     function update(Request $request ,libro_mayor $libros_mayores ){
+
+        $request->validate([
+            'nombre_denominacion'=>'required',
+            'gestion'=>'required|after:2020-01-01',
+        ]);
+
         $libros_mayores->nombre_denominacion=$request->nombre_denominacion;
         $libros_mayores->gestion=$request->gestion;
         $libros_mayores->id_user=$request->id_user;

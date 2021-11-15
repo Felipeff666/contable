@@ -19,6 +19,9 @@
                 @csrf
                 <div class=" ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre </label>
+                    @error('nombre')
+                        <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="text" name="nombre" placeholder="nombre..." id="nombre"     
                         class="mt-1 text-gray-800 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>

@@ -19,13 +19,19 @@
                 @csrf
                 <div class=" ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="nombre_denominacion" class="block text-sm font-medium text-gray-700">Nombre denominacion</label>
+                    @error('nombre_denominacion')
+                        <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="text" name="nombre_denominacion" placeholder="numero..." id="nombre_denominacion"     
                         class="mt-1 text-gray-800 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class=" ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="gestion" class="block text-sm font-medium text-gray-700">Gestion</label>
+                    @error('gestion')
+                        <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="date" name="gestion" placeholder="Gestion..." id="gestion" min="2020" max="2050"    
-                        class="mt-1 text-gray-800 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        class="mt-1 text-gray-400 hover:text-gray-700 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <input id="id_user" name="id_user" type="hidden" value="{{Auth::user()->id}}">
                 <div class=" flex justify-end pb-10 pr-20">

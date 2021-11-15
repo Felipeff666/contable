@@ -18,6 +18,13 @@ class librodiarioController extends Controller
         return view('inicio/libro_diario/insertar');
     }
     function store( Request $request){
+
+        $request->validate([
+            'nombre_denominacion'=>'required',
+            'fecha_apertura'=>'required|after:2020-01-01',
+            'fecha_cierre'=>'required|after:fecha_apertura'
+        ]); 
+
         $libros_diarios= new libro_diario();
         $libros_diarios->nombre_denominacion=$request->nombre_denominacion;
         $libros_diarios->fecha_apertura=$request->fecha_apertura;
@@ -32,6 +39,13 @@ class librodiarioController extends Controller
     }
 
     function update(Request $request,libro_diario $libros_diarios){
+
+        $request->validate([
+            'nombre_denominacion'=>'required',
+            'fecha_apertura'=>'required|after:2020-01-01',
+            'fecha_cierre'=>'required|after:fecha_apertura'
+        ]);
+
         $libros_diarios->nombre_denominacion=$request->nombre_denominacion;
         $libros_diarios->fecha_apertura=$request->fecha_apertura;
         $libros_diarios->fecha_cierre=$request->fecha_cierre;

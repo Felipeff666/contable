@@ -18,6 +18,9 @@ class tipocuentasController extends Controller
     }
     function store(Request $request){
 
+        $request->validate([
+            'nombre'=>'required'
+            ]);
         /* $tipo_cuenta = $request->all();
         tipo_cuentas::create([
             'nombre'=>$tipo_cuenta['nombre'],
@@ -34,6 +37,10 @@ class tipocuentasController extends Controller
         return view('plan_de_cuentas/tipo_cuentas/editar',compact('tipo_cuenta'));
     }
     function update(Request $request, tipo_cuentas $tipo_cuenta){
+        $request->validate([
+            'nombre'=>'required'
+            ]);
+
         $tipo_cuenta->nombre=$request->nombre;
         $tipo_cuenta->save();
         return redirect(route('tipo_cuentas')); 

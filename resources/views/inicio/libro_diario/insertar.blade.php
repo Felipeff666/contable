@@ -19,16 +19,25 @@
                 @csrf
                 <div class=" ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="nombre_denominacion" class="block text-sm font-medium text-gray-700">Nombre denominacion</label>
+                    @error('nombre_denominacion')
+                    <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="text" name="nombre_denominacion" placeholder="numero..." id="nombre_denominacion"     
                         class="mt-1 text-gray-800 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="fecha_apertura" class="block text-sm font-medium text-gray-700">Fecha apertura</label>
+                    @error('fecha_apertura')
+                    <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="date" name="fecha_apertura" placeholder="" id="fecha_apertura"
                         class="mt-1 text-gray-400 hover:text-gray-700 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
                 <div class="ml-20 mr-20 mt-3 mb-3 col-span-6 sm:col-span-3">
                     <label for="fecha_cierre" class="block text-sm font-medium text-gray-700">Fecha cierre</label>
+                    @error('fecha_cierre')
+                    <x-alert>{{$message}}</x-alert>
+                    @enderror
                     <input type="date" name="fecha_cierre" placeholder="" id="fecha_cierre"
                         class="mt-1 text-gray-400 hover:text-gray-700 focus:border-gray-800 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>

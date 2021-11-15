@@ -17,6 +17,10 @@ class subtipocuentasController extends Controller
     }
     function store(Request $request){
 
+        $request->validate([
+            'nombre'=>'required'
+            ]);
+
         $subtipo_cuenta=new subtipo_cuentas();
         $subtipo_cuenta->nombre=$request->nombre;
         $subtipo_cuenta->save();
@@ -26,6 +30,11 @@ class subtipocuentasController extends Controller
         return view('plan_de_cuentas/subtipo_cuentas/editar',compact('subtipo_cuenta'));
     }
     function update(Request $request,subtipo_cuentas $subtipo_cuenta){
+
+        $request->validate([
+            'nombre'=>'required'
+            ]);
+
         $subtipo_cuenta->nombre=$request->nombre;
         $subtipo_cuenta->save();
         return redirect(route('subtipo_cuentas'));
