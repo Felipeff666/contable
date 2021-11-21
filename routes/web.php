@@ -100,8 +100,20 @@ Route::middleware(['auth:sanctum', 'verified'])->delete('libro_mayor/{libros_may
 Route::middleware(['auth:sanctum', 'verified'])->get('plan_de_cuentas', [plandecuentasController::class,'index']
 )->name('plan_de_cuentas');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('plan_de_cuentas/insertar',[plandecuentasController::class,'insertar_cuenta']
+)->name('plan_de_cuentas/insertar');
 
+Route::middleware(['auth:sanctum', 'verified'])->post('plan_de_cuentas/insertar/reg',[plandecuentasController::class,'store']
+)->name('plan_de_cuentas/insertar/reg');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('plan_de_cuentas/insertar/editar/{cuenta}',[plandecuentasController::class,'editar_cuenta']
+)->name('plan_de_cuentas/editar');
+
+Route::middleware(['auth:sanctum', 'verified'])->put('plan_de_cuentas/insertar/editar/{cuenta}/edit',[plandecuentasController::class,'update']
+)->name('plan_de_cuentas/editar/edit');
+
+Route::middleware(['auth:sanctum', 'verified'])->delete('plan_de_cuentas/{cuenta}/del',[plandecuentasController::class,'destroy']
+)->name('plan_de_cuentas/del');
 
 
 /* plan de cuentas TIPO---------------------------------------------------------------------------------------------------------------------------------------------*/

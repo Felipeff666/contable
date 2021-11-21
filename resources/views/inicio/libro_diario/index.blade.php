@@ -6,7 +6,7 @@
         <a type="button"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-6 px-3 justify-center items-center" href="{{route('inicio')}}">volver</a>
     </x-slot>
   <div class="flex justify-end ml-20 mr-20 pr-5">
-      <a type="button"class=" pr-5 pl-5 mt-4  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('libro_diario/insertar')}}">Registrar nuevo asiento contable</a>
+      <a type="button"class=" pr-5 pl-5 mt-4  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('libro_diario/insertar')}}">Registrar nuevo libro diario</a>
   </div>
   <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200  ">
       <thead>

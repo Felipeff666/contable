@@ -45,7 +45,9 @@ class tipocuentasController extends Controller
         $tipo_cuenta->save();
         return redirect(route('tipo_cuentas')); 
     }
+
     function destroy(tipo_cuentas $tipo_cuenta){
+        
         $tipo_cuenta->delete();
         return redirect(route('tipo_cuentas'));
     }

@@ -24,7 +24,7 @@
                 <td class="px-4 py-3">{{$item->id}}</td>
                 <td class="px-4 py-3">{{$item->nombre}}</td>
                 <td class="px-4 py-3">
-                    <a type="button"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center" href="{{route('tipo_cuentas/editar',$item)}}">editar</a><br>
+                    <a type="button"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center"  href="{{route('tipo_cuentas/editar',$item)}}">editar</a><br>
                     <form action="{{route('tipo_cuentas/del',$item)}}" method="POST">
                         @csrf
                         @method('delete')
