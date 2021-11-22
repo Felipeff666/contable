@@ -54,7 +54,19 @@ class librodiarioController extends Controller
         return redirect(route('libro_diario'));
     }
     function destroy(libro_diario $libros_diarios){
-        $libros_diarios->delete();
-        return redirect(route('libro_diario'));
+
+        try {
+
+            $libros_diarios->delete();
+            return redirect(route('libro_diario'));
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            return '<script language="javascript"> alert("Lo sentimos este registro no puede ser eliminado ya que forma parte de un asiento contable "); window.location.href="'. route('libro_diario') .'"</script>';
+           
+        }
+        /* $libros_diarios->delete();
+        return redirect(route('libro_diario')); */
     }
+
+    
 }

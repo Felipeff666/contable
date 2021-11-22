@@ -40,7 +40,18 @@ class subtipocuentasController extends Controller
         return redirect(route('subtipo_cuentas'));
     }
     function destroy(subtipo_cuentas $subtipo_cuenta){
-        $subtipo_cuenta->delete();
-        return redirect(route('subtipo_cuentas'));
+
+        try {
+
+            $subtipo_cuenta->delete();
+            return redirect(route('subtipo_cuentas'));
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            
+            return '<script language="javascript"> alert("Lo sentimos este registro no puede ser eliminado por que forma parte un registro en el plan de cuentas  "); window.location.href="'. route('subtipo_cuentas') .'"</script>';
+           
+        }
+        /* $subtipo_cuenta->delete();
+        return redirect(route('subtipo_cuentas')); */
     }
 }

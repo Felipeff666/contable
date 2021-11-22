@@ -49,7 +49,16 @@ class libromayorController extends Controller
         return redirect(route('libro_mayor'));
     }
     function destroy(libro_mayor $libros_mayores ){
-        $libros_mayores->delete();
-        return redirect(route('libro_mayor'));
+        try {
+
+            $libros_mayores->delete();
+            return redirect(route('libro_mayor'));
+        
+        }catch (\Illuminate\Database\QueryException $e){
+            return '<script language="javascript"> alert("Lo sentimos este registro no puede ser eliminado ya que forma parte de un asiento contable "); window.location.href="'. route('libro_mayor') .'"</script>';
+           
+        }
+       /*  $libros_mayores->delete();
+        return redirect(route('libro_mayor')); */
     }
 }

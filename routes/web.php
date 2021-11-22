@@ -35,15 +35,30 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('inicio', inicioController::class
 )->name('inicio');
 
-/* asiento contable */
+
+
+
+
+/* asiento contable -------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 Route::middleware(['auth:sanctum', 'verified'])->get('asiento_contable', [asientocontableController::class,'index']
 )->name('asiento_contable');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('asiento_contable/editar', [asientocontableController::class,'editar_asiento']
-)->name('asiento_contable/editar');
-
 Route::middleware(['auth:sanctum', 'verified'])->get('asiento_contable/insertar', [asientocontableController::class,'insertar_asiento']
 )->name('asiento_contable/insertar');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('asiento_contable/insertar/reg', [asientocontableController::class,'store']
+)->name('asiento_contable/insertar/reg');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('asiento_contable/editar/{asiento_contable}', [asientocontableController::class,'editar_asiento']
+)->name('asiento_contable/editar');
+
+Route::middleware(['auth:sanctum', 'verified'])->put('asiento_contable/editar/{asiento_contable}/edit', [asientocontableController::class,'update']
+)->name('asiento_contable/editar/edit');
+
+Route::middleware(['auth:sanctum', 'verified'])->delete('asiento_contable/{asiento_contable}/del', [asientocontableController::class,'destroy']
+)->name('asiento_contable/del');
+
 
 
 

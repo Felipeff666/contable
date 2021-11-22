@@ -25,11 +25,11 @@
                 <td class="px-4 py-3">{{$item->nombre}}</td>
                 <td class="px-4 py-3">
                     <a type="button"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center"  href="{{route('tipo_cuentas/editar',$item)}}">editar</a><br>
-                    <form action="{{route('tipo_cuentas/del',$item)}}" method="POST">
+                    {{-- <form action="{{route('tipo_cuentas/del',$item)}}" method="POST">
                         @csrf
                         @method('delete')
                         <button type="submit"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center">Borrar</button>
-                    </form>
+                    </form> --}}
                     
                 </td>
                 @endforeach

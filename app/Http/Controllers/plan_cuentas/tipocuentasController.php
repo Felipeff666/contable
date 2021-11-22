@@ -47,8 +47,18 @@ class tipocuentasController extends Controller
     }
 
     function destroy(tipo_cuentas $tipo_cuenta){
+
+        try {
+
+            $tipo_cuenta->delete();
+            return redirect(route('tipo_cuentas'));
         
-        $tipo_cuenta->delete();
-        return redirect(route('tipo_cuentas'));
+        }catch (\Illuminate\Database\QueryException $e){
+            return '<script language="javascript"> alert("Lo sentimos este registro no puede ser eliminado por que forma parte un registro en el plan de cuentas "); window.location.href="'. route('tipo_cuentas') .'"</script>';
+           
+        }
+        
+        /* $tipo_cuenta->delete();
+        return redirect(route('tipo_cuentas')); */
     }
 }
