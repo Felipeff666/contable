@@ -7,8 +7,11 @@ use App\Http\Controllers\inicio\libromayorController;
 use App\Http\Controllers\plan_cuentas\plandecuentasController;
 use App\Http\Controllers\plan_cuentas\subtipocuentasController;
 use App\Http\Controllers\plan_cuentas\tipocuentasController;
-
-
+use App\Http\Controllers\resultados\balance_generalController;
+use App\Http\Controllers\resultados\balanza_de_comprobacionController;
+use App\Http\Controllers\resultados\estado_de_capitalController;
+use App\Http\Controllers\resultados\estado_de_resultadosController;
+use App\Http\Controllers\resultados\resultadosController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -175,3 +178,45 @@ Route::middleware(['auth:sanctum', 'verified'])->put('plan_de_cuentas/subtipo_cu
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('plan_de_cuentas/subtipo_cuentas/{subtipo_cuenta}/del', [subtipocuentasController::class,'destroy']
 )->name('subtipo_cuentas/del');
+
+
+
+
+
+/* resultados------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados', [ resultadosController::class,'index']
+)->name('resultados');
+
+
+
+
+
+/* Balanza de comprobacion------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/balanza_de_comprobacion', [ balanza_de_comprobacionController::class,'index']
+)->name('balanza_de_comprobacion');
+
+
+
+
+/* estado de resultados------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/estado_de_resultados', [ estado_de_resultadosController::class,'index']
+)->name('estado_de_resultados');
+
+
+
+
+/* estado del capital contable------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/estado_de_capital', [ estado_de_capitalController::class,'index']
+)->name('estado_de_capital');
+
+
+
+
+/* Balance general------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/balance_general', [ balance_generalController::class,'index']
+)->name('balance_general');

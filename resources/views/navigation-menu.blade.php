@@ -8,12 +8,12 @@
     [
         'name' =>' Plan de cuentas',
         'route' =>route('plan_de_cuentas'),
-        'active'=> request()->routeIS('plan_de_cuentas')
+        'active'=> request()->routeIs('plan_de_cuentas')
     ],
     [
         'name' =>'Resultados',
-        'route' =>'#',
-        'active'=> false
+        'route' =>route('resultados'),
+        'active'=> request()->routeIs('resultados')
     ],
     [
         'name' =>'Usuarios',

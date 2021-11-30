@@ -46,7 +46,7 @@
                             <form action="{{route('plan_de_cuentas/del',$item)}}" method="POST">
                                 @csrf
                                 @method('delete')
-                                <button type="submit"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center" href="">Borrar</button>
+                                <button type="submit"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center" >Borrar</button>
                                 
                             </form>
                             
