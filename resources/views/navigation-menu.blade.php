@@ -1,5 +1,5 @@
 @php
-  $nav_links =[
+  $nav_links_adm =[
     [
         'name' =>'Inicio',
         'route' =>route('inicio'),
@@ -17,8 +17,26 @@
     ],
     [
         'name' =>'Usuarios',
-        'route' =>'#',
-        'active'=> false
+        'route' =>route('usuarios'),
+        'active'=> request()->routeIs('usuarios')
+    ],
+];
+
+    $nav_links =[
+    [
+        'name' =>'Inicio',
+        'route' =>route('inicio'),
+        'active'=> request()->routeIs('inicio')
+    ],
+    [
+        'name' =>' Plan de cuentas',
+        'route' =>route('plan_de_cuentas'),
+        'active'=> request()->routeIs('plan_de_cuentas')
+    ],
+    [
+        'name' =>'Resultados',
+        'route' =>route('resultados'),
+        'active'=> request()->routeIs('resultados')
     ],
   ]  ;
 @endphp
@@ -37,11 +55,21 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    @foreach ($nav_links as $item)
-                    <x-jet-nav-link href="{{ $item['route'] }}" :active="$item['active']">
-                        {{ $item['name'] }}
-                    </x-jet-nav-link>
-                    @endforeach
+                    @if (Auth::user()->current_team_id != 1)
+                        @foreach ($nav_links as $item)
+                        <x-jet-nav-link href="{{ $item['route'] }}" :active="$item['active']">
+                            {{ $item['name'] }}
+                        </x-jet-nav-link>
+                        @endforeach
+                    @else   
+                        @foreach ($nav_links_adm as $item)
+                        <x-jet-nav-link href="{{ $item['route'] }}" :active="$item['active']">
+                            {{ $item['name'] }}
+                        </x-jet-nav-link>
+                         @endforeach
+                    @endif
+
+                    
                         
                 </div>
             </div>

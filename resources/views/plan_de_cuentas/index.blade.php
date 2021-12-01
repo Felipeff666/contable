@@ -23,7 +23,10 @@
         <div class="justify_center">
             <p class="flex justify-center p-6 text-gray-700 font-bold text-2xl">Plan de cuentas del colegio ABC</p>
             <div class="flex justify-end ml-20 mr-20 ">
+                @if (Auth::user()->current_team_id != 3)
                 <a type="button"class=" pr-5 pl-5 mt-1  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('plan_de_cuentas/insertar')}}">Agregar una cuenta nueva</a>
+                @endif
+                
             </div>
             <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200  ">
                 <thead>
@@ -31,7 +34,10 @@
                         <th class="px-4 py-3">Código</th>
                         <th class="px-4 py-3">Nombre</th>
                         <th class="px-4 py-3">Descripcion</th>
+                        @if (Auth::user()->current_team_id != 3)
                         <th class="px-4 py-3">Opciones</th>
+                        @endif
+                       
                     </tr>
                 </thead>
                 <tbody >
@@ -41,6 +47,7 @@
                         <td class="px-4 py-3">{{$item->id_tipo_cuenta.'.'.$item->id_subtipo_cuenta.'.'.$item->id}}</td>
                         <td class="px-4 py-3">{{$item->nombre}}</td>
                         <td class="px-4 py-3">{{$item->descripcion}}</td>
+                        @if (Auth::user()->current_team_id != 3)
                         <td class="px-4 py-3">
                             <a type="button"class=" pr-5 pl-5 mt-1 inline-flex bg-gray-700 text-white rounded-full h-6 px-3 justify-center items-center" href="{{route('plan_de_cuentas/editar',$item->id)}}">editar</a><br>
                             <form action="{{route('plan_de_cuentas/del',$item)}}" method="POST">
@@ -51,6 +58,8 @@
                             </form>
                             
                         </td>
+                        @endif
+                        
                         @endforeach
                     </tr>
                 </tbody>

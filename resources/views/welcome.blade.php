@@ -169,9 +169,10 @@
             @else
                 <a style="color:white; margin-left:10px;margin-right:10px" href="{{ route('login') }}" class="inline-flex items-center  focus:outline-none focus:border-indigo-700 transition">Log in</a>
         
-                @if (Route::has('register'))
+               {{--  @if (Route::has('register'))
                     <a style="color:white; margin-left:10px;margin-right:10px" href="{{ route('register') }}" class="inline-flex items-center  focus:outline-none focus:border-indigo-700 transition">Register</a>
-                @endif
+                @endif --}}
+
             @endauth
         </div>
         
