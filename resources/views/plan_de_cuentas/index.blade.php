@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="flex justify-center">
-        <div class=" justify_center">
+    <div class="flex justify-center ">
+        <div class=" justify_center  ">
             <x-cardsinicio ruta="tipo_cuentas">
                 <x-slot name="numero">1</x-slot>
                 <x-slot name="titulo">Tipos de cuenta</x-slot>
@@ -64,6 +64,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div>
+                {{$plan_de_cuentas->links()}}
+            </div>
           
         </div>
     </div>

@@ -64,5 +64,8 @@
         </tbody>
         
     </table>    
+    <div class="" style="color: white;">
+        {{$asiento_contable->links()}}
+    </div>
     
   </x-app-layout>

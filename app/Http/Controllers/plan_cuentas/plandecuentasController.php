@@ -12,7 +12,7 @@ class plandecuentasController extends Controller
 {
     function index()
     {
-        $plan_de_cuentas=plan_de_cuentas::all();
+        $plan_de_cuentas=plan_de_cuentas::paginate(6);
         return view('plan_de_cuentas/index',compact('plan_de_cuentas'));
     }
     function insertar_cuenta()

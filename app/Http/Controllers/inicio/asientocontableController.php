@@ -15,7 +15,7 @@ class asientocontableController extends Controller
 {   
     function index()
     {    
-        $asiento_contable = asiento_contable::all();
+        $asiento_contable = asiento_contable::paginate(5);
         $libros_mayores = libro_mayor::all();
         $libros_diarios = libro_diario::all();
         $cuentas = cuentas::all();
