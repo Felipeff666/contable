@@ -5,6 +5,11 @@
             {{ __('Resultados') }}
         </h2>
     </x-slot>
+
+    <div class="flex justify-center ml-20 mr-10 mt-5 ">
+        <a type="button"class=" pr-5 pl-5   inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('resultados/pdf')}}">Generar informe de estados financieros en PDF</a>
+    </div>  
+
     <div class="flex  justify-center mt-4 ml-4 mr-4" >
         
         <div>
@@ -39,6 +44,7 @@
             
            
           
-    </div>    
+    </div>  
+   
 
 </x-app-layout>

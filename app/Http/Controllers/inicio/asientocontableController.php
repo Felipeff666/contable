@@ -7,6 +7,7 @@ use App\Models\inicio\libro_diario;
 use App\Models\inicio\libro_mayor;
 use App\Models\plan_cuentas\cuentas;
 use App\Models\User;
+use PDF;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +16,7 @@ class asientocontableController extends Controller
 {   
     function index()
     {    
-        $asiento_contable = asiento_contable::paginate(5);
+        $asiento_contable = asiento_contable::paginate(4);
         $libros_mayores = libro_mayor::all();
         $libros_diarios = libro_diario::all();
         $cuentas = cuentas::all();
@@ -101,6 +102,16 @@ class asientocontableController extends Controller
         $asiento_contable->delete();
         return redirect(route('asiento_contable'));
 
+    }
+    function pdf(){
+        $asiento_contable = asiento_contable::all();
+        $libros_mayores = libro_mayor::all();
+        $libros_diarios = libro_diario::all();
+        $cuentas = cuentas::all();
+        $users = User::all();
+        $pdf = PDF::loadView('inicio/asiento_contable/pdf',['asiento_contable'=>$asiento_contable,'libros_mayores'=>$libros_mayores,'libros_diarios'=>$libros_diarios,'cuentas'=>$cuentas,'users'=>$users]);
+        return $pdf->stream('asientos contables.pdf');
+        /* return view('inicio/asiento_contable/index',compact('asiento_contable','libros_mayores','libros_diarios','cuentas','users')); */
     }
     
 }

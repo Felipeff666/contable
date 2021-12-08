@@ -12,6 +12,7 @@ use App\Http\Controllers\resultados\balance_generalController;
 use App\Http\Controllers\resultados\balanza_de_comprobacionController;
 use App\Http\Controllers\resultados\estado_de_capitalController;
 use App\Http\Controllers\resultados\estado_de_resultadosController;
+use App\Http\Controllers\resultados\pdfController;
 use App\Http\Controllers\resultados\resultadosController;
 use App\Http\Controllers\usuarios\usuariosController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,9 @@ Route::middleware(['auth:sanctum', 'verified'])->put('asiento_contable/editar/{a
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('asiento_contable/{asiento_contable}/del', [asientocontableController::class,'destroy']
 )->name('asiento_contable/del');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('asiento_contable/pdf', [asientocontableController::class,'pdf']
+)->name('asiento_contable/pdf');
 
 
 
@@ -134,6 +138,9 @@ Route::middleware(['auth:sanctum', 'verified'])->put('plan_de_cuentas/insertar/e
 
 Route::middleware(['auth:sanctum', 'verified'])->delete('plan_de_cuentas/{cuenta}/del',[plandecuentasController::class,'destroy']
 )->name('plan_de_cuentas/del');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('plan_de_cuentas/pdf', [plandecuentasController::class,'pdf']
+)->name('plan_de_cuentas/pdf');
 
 
 /* plan de cuentas TIPO---------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -209,6 +216,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('resultados/estado_de_capit
 
 Route::middleware(['auth:sanctum', 'verified'])->get('resultados/balance_general', [ balance_generalController::class,'index']
 )->name('balance_general');
+
+/*Generar pdf de resultados-----------------------------------------------------------------*/
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/pdf', [ pdfController::class,'pdf']
+)->name('resultados/pdf');
 
 
 

@@ -6,13 +6,15 @@ use App\Models\plan_cuentas\cuentas;
 use App\Models\plan_cuentas\plan_de_cuentas;
 use App\Models\plan_cuentas\subtipo_cuentas;
 use App\Models\plan_cuentas\tipo_cuentas;
+use PDF;
 use Illuminate\Http\Request;
 
 class plandecuentasController extends Controller
 {
     function index()
     {
-        $plan_de_cuentas=plan_de_cuentas::paginate(6);
+        /* $plan_de_cuentas=plan_de_cuentas::paginate(4); */
+        $plan_de_cuentas=plan_de_cuentas::all();
         return view('plan_de_cuentas/index',compact('plan_de_cuentas'));
     }
     function insertar_cuenta()
@@ -63,5 +65,12 @@ class plandecuentasController extends Controller
     function destroy(cuentas $cuenta){
         $cuenta->delete();
         return redirect(route('plan_de_cuentas'));
+    }
+
+    function pdf(){
+        $plan_de_cuentas=plan_de_cuentas::all();
+        $pdf=PDF::loadView('plan_de_cuentas/pdf',['plan_de_cuentas'=>$plan_de_cuentas]);
+        return $pdf->stream('Plan de cuentas.pdf');
+       /*  return view('plan_de_cuentas/pdf',compact('plan_de_cuentas')); */
     }
 }

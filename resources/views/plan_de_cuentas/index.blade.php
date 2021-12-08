@@ -23,8 +23,9 @@
         <div class="justify_center">
             <p class="flex justify-center p-6 text-gray-700 font-bold text-2xl">Plan de cuentas del colegio ABC</p>
             <div class="flex justify-end ml-20 mr-20 ">
+                <a type="button"class=" pr-5 pl-5 mt-1   inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('plan_de_cuentas/pdf')}}">Generar PDF</a>
                 @if (Auth::user()->current_team_id != 3)
-                <a type="button"class=" pr-5 pl-5 mt-1  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('plan_de_cuentas/insertar')}}">Agregar una cuenta nueva</a>
+                <a type="button"class=" pr-5 pl-5 mt-1 ml-3 inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('plan_de_cuentas/insertar')}}">Agregar una cuenta nueva</a>
                 @endif
                 
             </div>
@@ -64,9 +65,9 @@
                     </tr>
                 </tbody>
             </table>
-            <div>
+            {{-- <div>
                 {{$plan_de_cuentas->links()}}
-            </div>
+            </div> --}}
           
         </div>
     </div>
