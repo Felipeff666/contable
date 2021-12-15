@@ -44,7 +44,7 @@
                         
                     </tr>
                 </thead>
-                <tbody >
+                <tbody style="background-color:whitesmoke" >
                     
                     @foreach ($asiento_contable as $item)
                     <tr  class="bg-gray-300 border-b border-gray-200 text-gray-800">

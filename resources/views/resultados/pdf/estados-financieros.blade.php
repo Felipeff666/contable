@@ -53,7 +53,7 @@
                             <th class="px-4 py-3">Saldo acreedor</th>
                         </tr>
                     </thead>
-                    <tbody  >
+                    <tbody style="background-color:whitesmoke" >
                         
                         @foreach ($balanza_de_comprobacion as $item)
                         <tr class="bg-gray-300 border-b border-gray-200 text-gray-800">
@@ -94,7 +94,7 @@
                             <th class="px-4 py-3">Saldo acreedor</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody style="background-color:whitesmoke">
                         
                         @foreach ($estado_de_resultados as $item)
                         <tr  class="bg-gray-300 border-b border-gray-200 text-gray-800">
@@ -138,7 +138,7 @@
                             <th class="px-4 py-3">Saldo acreedor</th>
                         </tr>
                     </thead>
-                    <tbody >
+                    <tbody style="background-color:whitesmoke">
                         
                         @foreach ($estado_de_capital as $item)
                         <tr  class="bg-gray-300 border-b border-gray-200 text-gray-800">
@@ -182,7 +182,7 @@
                                 <th class="px-4 py-3">Haber</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody style="background-color:whitesmoke">
                             
                             @foreach ($balance_general as $item)
                             @if ($item->nombre_cuenta =='total pasivos y capital' || $item->nombre_cuenta == 'total activos')

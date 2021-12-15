@@ -230,13 +230,21 @@ Route::middleware(['auth:sanctum', 'verified'])->get('resultados/res_libro_mayor
 )->name('res_libro_mayor');
 
 
-/*Generar pdf de resultados-----------------------------------------------------------------*/
+/*Generar pdf de resultados de estados financieros -----------------------------------------------------------------*/
 
 Route::middleware(['auth:sanctum', 'verified'])->get('resultados/pdf', [ pdfController::class,'pdf']
 )->name('resultados/pdf');
 
 
+/*Generar pdf de resultados de libro diario -----------------------------------------------------------------*/
 
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/ldiario/pdf', [ res_libro_diarioController::class,'pdf']
+)->name('resultados/ldiario/pdf');
+
+/*Generar pdf de resultados de libro mayor -----------------------------------------------------------------*/
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/lmayor/pdf', [ res_libro_mayorController::class,'pdf']
+)->name('resultados/lmayor/pdf');
 
 
 

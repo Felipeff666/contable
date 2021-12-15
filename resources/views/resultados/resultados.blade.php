@@ -7,7 +7,9 @@
     </x-slot>
 
     <div class="flex justify-center ml-20 mr-10 mt-5 ">
-        <a type="button"class=" pr-5 pl-5   inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('resultados/pdf')}}">Generar informe de estados financieros en PDF</a>
+        <a type="button"class=" pr-5 pl-5 ml-3 mr-3  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('resultados/pdf')}}">Generar PDF del informe de estados financieros  </a>
+        <a type="button"class=" pr-5 pl-5 ml-3 mr-3  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('resultados/ldiario/pdf')}}">Generar informe del libro diario PDF</a>
+        <a type="button"class=" pr-5 pl-5 ml-3 mr-3  inline-flex bg-gray-700 hover:bg-gray-500 text-white rounded-full h-10  justify-center items-center" href="{{route('resultados/lmayor/pdf')}}">Generar informe del libro mayor PDF</a>
     </div>  
 
     <div class="flex  justify-center mt-4 ml-4 mr-4" >
