@@ -6,6 +6,7 @@ use App\Models\inicio\asiento_contable;
 use App\Models\inicio\libro_diario;
 use App\Models\inicio\libro_mayor;
 use App\Models\plan_cuentas\cuentas;
+use App\Models\plan_cuentas\plan_de_cuentas;
 use App\Models\User;
 use PDF;
 use Illuminate\Http\Request;
@@ -19,9 +20,10 @@ class asientocontableController extends Controller
         $asiento_contable = asiento_contable::paginate(4);
         $libros_mayores = libro_mayor::all();
         $libros_diarios = libro_diario::all();
+        $plan_de_cuentas = plan_de_cuentas::all();
         $cuentas = cuentas::all();
         $users = User::all();
-        return view('inicio/asiento_contable/index',compact('asiento_contable','libros_mayores','libros_diarios','cuentas','users'));
+        return view('inicio/asiento_contable/index',compact('asiento_contable','plan_de_cuentas','libros_mayores','libros_diarios','cuentas','users'));
     }
     function insertar_asiento(){
         $libros_mayores = libro_mayor::all();
@@ -107,9 +109,10 @@ class asientocontableController extends Controller
         $asiento_contable = asiento_contable::all();
         $libros_mayores = libro_mayor::all();
         $libros_diarios = libro_diario::all();
+        $plan_de_cuentas = plan_de_cuentas::all();
         $cuentas = cuentas::all();
         $users = User::all();
-        $pdf = PDF::loadView('inicio/asiento_contable/pdf',['asiento_contable'=>$asiento_contable,'libros_mayores'=>$libros_mayores,'libros_diarios'=>$libros_diarios,'cuentas'=>$cuentas,'users'=>$users]);
+        $pdf = PDF::loadView('inicio/asiento_contable/pdf',['asiento_contable'=>$asiento_contable,'libros_mayores'=>$libros_mayores,'libros_diarios'=>$libros_diarios,'cuentas'=>$cuentas,'plan_de_cuentas'=>$plan_de_cuentas,'users'=>$users]);
         return $pdf->stream('asientos contables.pdf');
         /* return view('inicio/asiento_contable/index',compact('asiento_contable','libros_mayores','libros_diarios','cuentas','users')); */
     }

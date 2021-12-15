@@ -13,6 +13,8 @@ use App\Http\Controllers\resultados\balanza_de_comprobacionController;
 use App\Http\Controllers\resultados\estado_de_capitalController;
 use App\Http\Controllers\resultados\estado_de_resultadosController;
 use App\Http\Controllers\resultados\pdfController;
+use App\Http\Controllers\resultados\res_libro_diarioController;
+use App\Http\Controllers\resultados\res_libro_mayorController;
 use App\Http\Controllers\resultados\resultadosController;
 use App\Http\Controllers\usuarios\usuariosController;
 use Illuminate\Support\Facades\Route;
@@ -216,6 +218,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('resultados/estado_de_capit
 
 Route::middleware(['auth:sanctum', 'verified'])->get('resultados/balance_general', [ balance_generalController::class,'index']
 )->name('balance_general');
+
+/* resultados de libro diario------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/res_libro_diario', [ res_libro_diarioController::class,'index']
+)->name('res_libro_diario');
+
+/* resultados de libro mayor------------------------------------------------------------------------ */
+
+Route::middleware(['auth:sanctum', 'verified'])->get('resultados/res_libro_mayor', [ res_libro_mayorController::class,'index']
+)->name('res_libro_mayor');
+
 
 /*Generar pdf de resultados-----------------------------------------------------------------*/
 

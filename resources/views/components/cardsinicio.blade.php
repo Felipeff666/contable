@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="flex justify-center ">
     <div class=" flex  flex-col   justify-center  flex-wrap gap-3 mt-3 mb-7 ml-5 mr-5 ">
         <div class="">
             <div class="bg-white  shadow-lg   mx-auto border-b-4 border-gray-700 rounded-2xl overflow-hidden  hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer" >
@@ -6,7 +6,7 @@
                     <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">{{ $numero }}</h1>
                     <p class="ml-4 mr-4 text-white uppercase">{{ $titulo }}</p>
                 </div>
-                <p class="py-6 px-6 text-lg tracking-wide ">
+                <p class="py-6 px-6 text-lg tracking-wide  ">
                     {{ $descripcion }}
                     {{-- En esta seccion podras registrar editar y eliminar asientos contables --}}
                 </p>
