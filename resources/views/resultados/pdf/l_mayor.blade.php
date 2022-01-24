@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Libro diario</title>
+    <title>Libro Mayor</title>
     <style>
         .resultados{
             background-color: #d1d5db;
@@ -18,7 +18,7 @@
     <div  class=" border-solid border-4 border-gray-800 ml-7 mr-7 mt-5 ">
         @foreach ($libro_mayor as $item)
             @if ($item->id == '1')
-                <h3 style="text-align: center; " class="flex justify-center text-gray-800 font-serif text-2xl mt-5 ">INFORME DE ESTADOS FINANCIEROS: {{$item->nombre_denominacion}} </h3><br>
+                <h3 style="text-align: center; " class="flex justify-center text-gray-800 font-serif text-2xl mt-5 ">LIBRO MAYOR: {{$item->nombre_denominacion}} </h3><br>
                 <p style="margin:0px; " class="flex justify-start text-gray-800 font-serif text-2xl ml-7">Fecha de apertura: {{$item->gestion}} </p>
                 
             @endif

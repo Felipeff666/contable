@@ -18,7 +18,7 @@
     <div  class=" border-solid border-4 border-gray-800 ml-7 mr-7 mt-5 ">
         @foreach ($libros_diarios as $item)
             @if ($item->id == '1')
-                <h3 style="text-align: center; " class="flex justify-center text-gray-800 font-serif text-2xl mt-5 ">INFORME DE ESTADOS FINANCIEROS: {{$item->nombre_denominacion}} </h3><br>
+                <h3 style="text-align: center; " class="flex justify-center text-gray-800 font-serif text-2xl mt-5 ">LIBRO DIARIO: {{$item->nombre_denominacion}} </h3><br>
                 <p style="margin:0px; " class="flex justify-start text-gray-800 font-serif text-2xl ml-7">Fecha de apertura: {{$item->fecha_apertura}} </p><br>
                 <p style="margin:0px; " class="flex justify-start text-gray-800 font-serif text-2xl ml-7 mb-5">Fecha de cierre: {{$item->fecha_cierre}}</p>
             @endif
